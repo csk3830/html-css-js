@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @keyframes jump{
+            from{
+                bottom: 10px;
+            }
+            25%{
+                bottom: 30px;
+            }
+            50%{
+                bottom:10px;
+            }
+            75%{
+                bottom: 70px;
+            }
+            to{
+                bottom: 10px;
+            }
+        }
+        .box{
+            position: fixed;
+            bottom: 10px;
+            animation-name: jump;
+            animation-iteration-count: infinite;
+            animation-duration: 1s;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        뛰어!뛰어!뛰어!
+    </div>
+</body>
+</html>

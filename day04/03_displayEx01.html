@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            width: 100%;
+        }     
+        .menu {
+            width: 100%;
+            line-height: 50px;
+            display: block;
+            text-decoration: none;
+            text-align: center;
+            height: 50px;
+            font-size: 24px;
+            color: rgb(0, 255, 221);
+            font-weight: 700;
+            border: 1px solid rgb(0, 255, 221);
+            box-sizing: content-box;
+            border-bottom: none;
+        }
+        .menu:hover{
+            background-color: bisque;
+            color: black;
+            border-color: black;
+        }
+
+        .menu:last-child{
+            border-bottom: 1px solid rgb(0, 255, 221);
+        }
+        
+        .menu-box {
+            width: 200px;
+            float: left;
+            background-color: black;
+        }
+        .image-box {
+            width: calc(100% - 220px);
+            height: 800px;
+            background-image: url(../image/야경.jpg);
+            float: right;
+            background-position: center;
+            background-size: cover;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="menu-box">
+            <a href="" class="menu">menu1</a>
+            <a href="" class="menu">menu2</a>
+            <a href="" class="menu">menu3</a>
+            <a href="" class="menu">menu4</a>
+        </div>
+        <div class="image-box"></div>
+    </div>
+
+
+    <nav>
+
+    </nav>
+    <div class="content"></div>
+</body>
+
+</html>

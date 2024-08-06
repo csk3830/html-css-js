@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .thanks {
+            width: 100px;
+            height: 100px;
+            float: left;
+            background-color: crimson;
+            text-align: center;
+            font-weight: 700;
+            color: azure;
+            padding-top: 10px;
+            margin-left: 10px;
+            /* position: relative; */
+        }
+
+        .thanks:hover {
+            /* top: 10px;
+            left: 10px; */
+            transform: translate(10px, 10px);
+            background-color: rgb(209, 94, 117);
+        }
+
+        .thanks::after {
+            content: "";
+            clear: both;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="thanks">T</div>
+    <div class="thanks">H</div>
+    <div class="thanks">A</div>
+    <div class="thanks">N</div>
+    <div class="thanks">K</div>
+    <div class="thanks">S</div>
+</body>
+
+</html>

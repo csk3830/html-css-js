@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        .search {
+            width: 400px;
+            height: 52px;
+        }
+
+        .bar {
+            width: calc(100% - 62px);
+            float: left;
+            border: 1px solid #03c75a;
+            box-sizing: border-box;
+            border-radius: 5px 0px 0px 5px;
+        }
+
+        .si {
+            width: 75%;
+            outline: none;
+            border: none;
+            margin-left: 10px;
+            font-size: 15px;
+            line-height: 48px;
+        }
+        .tool {
+            width: 22%;
+            float: right;
+            margin-top: 12px;
+        }
+        .bi-keyboard{
+            width: 25px;
+            height: 25px;
+            fill: gray;
+        }
+        .bi-caret-down-fill{
+            width: 20px;
+            height: 20px;
+            margin-left: 5px;
+            fill: gray;
+        }
+        .icon:hover{
+            cursor: pointer;
+            fill: rgb(54, 54, 54);
+        }
+
+        .btn {
+            width: 50px;
+            height: 50px;
+            float: right;
+            box-sizing: content-box;
+            border: none;
+            border-radius: 0px 5px 5px 0px;
+            background-color: #03c75a;
+        }
+
+        .btn:hover {
+            cursor: pointer;
+        }
+        .bi-search{
+            width: 25px;
+            height: 25px;
+            fill: white;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 검색 누르면 search=검색어 뜨도록 form 태그
+검색창은 350, 아이콘 버튼이 50 (총 400)
+placehoder로 검색어를 입력해주세요.
+-->
+    <form>
+        <div class="search">
+            <div class="bar">
+                <input class="si" type="search" name="search" placeholder="검색어를 입력해 주세요.">
+                <div class="tool">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="bi bi-keyboard icon" viewBox="0 0 16 16">
+                        <path
+                            d="M14 5a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zM2 4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z" />
+                        <path
+                            d="M13 10.25a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25zm0-2a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25zm-5 0A.25.25 0 0 1 8.25 8h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 8 8.75zm2 0a.25.25 0 0 1 .25-.25h1.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-1.5a.25.25 0 0 1-.25-.25zm1 2a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25zm-5-2A.25.25 0 0 1 6.25 8h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 6 8.75zm-2 0A.25.25 0 0 1 4.25 8h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 4 8.75zm-2 0A.25.25 0 0 1 2.25 8h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 2 8.75zm11-2a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25zm-2 0a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25zm-2 0A.25.25 0 0 1 9.25 6h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 9 6.75zm-2 0A.25.25 0 0 1 7.25 6h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 7 6.75zm-2 0A.25.25 0 0 1 5.25 6h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 5 6.75zm-3 0A.25.25 0 0 1 2.25 6h1.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-1.5A.25.25 0 0 1 2 6.75zm0 4a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25zm2 0a.25.25 0 0 1 .25-.25h5.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-5.5a.25.25 0 0 1-.25-.25z" />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="bi bi-caret-down-fill icon" viewBox="0 0 16 16">
+                        <path
+                            d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                    </svg>
+                </div>
+            </div>
+            <button class="btn">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                    class="bi bi-search" viewBox="0 0 16 16">
+                    <path
+                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                </svg>
+            </button>
+        </div>
+    </form>
+
+
+
+
+</body>
+
+</html>

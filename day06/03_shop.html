@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="reset.css">
+    <style>
+        @font-face {
+            font-family: 'godoB';
+            src: url(../font/GodoB.ttf);
+        }
+
+        @font-face {
+            font-family: 'godoM';
+            src: url(../font/GodoM.ttf);
+        }
+
+        @font-face {
+            font-family: 'nago';
+            src: url(../font/NanumGothicCoding-Regular.ttf);
+        }
+
+        body {
+            font-family: 'godoB', sans-serif;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            height: 70px;
+            align-items: center;
+            padding: 0 70px 0 70px;
+            font-weight: 700
+        }
+
+        .logo {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 110px;
+            font-size: 20px;
+        }
+
+        .logo>img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .menu {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 600px;
+            font-size: 18px;
+        }
+
+        .menu>a:hover {
+            text-shadow: 1px 1px gray;
+        }
+
+        .main-img {
+            margin: 0 auto;
+            height: 500px;
+            background-image: url(../image/수영.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .what {
+            text-align: center;
+            padding: 60px 0 50px 0;
+            font-size: 25px;
+            font-family: 'godoM', sans-serif;
+            font-weight: 900;
+        }
+
+        .product {
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            width: 700px;
+            height: 930px;
+            justify-content: space-between;
+            font-family: nago;
+            text-align: center;
+            letter-spacing: -2px;
+        }
+
+        .pdt-img {
+            width: 210px;
+            height: 210px;
+            background-size: cover;
+        }
+
+        .pdt-img:hover {
+            background-position: center;
+            transform: scale(110%);
+            transition: 0.2s;
+        }
+
+        .pdt-img1 {
+            background-image: url(../image/수영3.jpg);
+        }
+
+        .pdt-img2 {
+            background-image: url(../image/수영4.jpg);
+        }
+
+        .pdt-img3 {
+            background-image: url(../image/수영5.jpg);
+        }
+
+        .pdt-img4 {
+            background-image: url(../image/수영6.jpg);
+        }
+
+        .pdt-img5 {
+            background-image: url(../image/수영7.jpg);
+        }
+
+        .pdt-img6 {
+            background-image: url(../image/수영8.jpg);
+        }
+
+        .pdt-img7 {
+            background-image: url(../image/수영9.jpg);
+        }
+
+        .pdt-img8 {
+            background-image: url(../image/수영10.png);
+        }
+
+        .pdt-img9 {
+            background-image: url(../image/수영11.jpg);
+        }
+
+        .description {
+            padding: 15px 0 15px 0;
+        }
+
+        .price {
+            letter-spacing: 0;
+            padding-top: 10px;
+            display: inline-block;
+            font-family: sans-serif;
+        }
+
+        footer {
+            width: 200px;
+            justify-content: space-between;
+            display: flex;
+            margin: 0 auto;
+            padding: 70px 0 90px 0;
+        }
+
+        footer img {
+            width: 45px;
+            height: 45px;
+            filter: brightness(200%);
+        }
+
+        /* 세일상품 */
+        .product>a{
+            position: relative;
+        }
+        .product .text{
+            position: absolute;
+            top: 200px;
+            left: 50%;
+            transform: translate(-50%);
+            color: red;
+            /* 보이지 않게*/
+            display: none;
+        }
+        /* hover시 디스플레이를 다시 블럭으로 설정*/
+        /* hover의 대상이 다른 경우 */
+        .product>a:hover .text{
+            display: block;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <!-- 메인사진1, 작은사진9
+    사이트 가서 털어오기
+    플렉스 wrap해서 내리기
+    맨밑에 인스타, 트위터, 페북 아이콘 -->
+    <div class="container">
+        <header>
+            <a href="">
+                <div class="logo">
+                    <img src="../image/별아이콘.png" alt="별아이콘">
+                    TZ SWIM
+                </div>
+            </a>
+            <ul class="menu">
+                <a href="">
+                    <li>NEW</li>
+                </a>
+                <a href="">
+                    <li>BEST</li>
+                </a>
+                <a href="">
+                    <li>WOMEN</li>
+                </a>
+                <a href="">
+                    <li>MEN</li>
+                </a>
+                <a href="">
+                    <li>GOGGLES</li>
+                </a>
+                <a href="">
+                    <li>CAP</li>
+                </a>
+                <a href="">
+                    <li>SALE</li>
+                </a>
+            </ul>
+        </header>
+
+        <div class="main-img"></div>
+        <p class="what">WHAT'S NEW</p>
+        <div class="product">
+            <a href="">
+                <div class="pdt-img pdt-img1"></div>
+                <div class="text">세일상품</div>
+                <div class="description">
+                    <span>아레나 실리콘수모 화이트</span><br>
+                    <span class="price">10,000원</span>
+                </div>
+            </a>
+            <a href="">
+                <div class="pdt-img pdt-img2"></div>
+                <div class="text">세일상품</div>
+                <div class="description">
+                    <span>아레나 실리콘수모 블랙</span><br>
+                    <span class="price">10,000원</span>
+                </div>
+            </a>
+            <a href="">
+                <div class="pdt-img pdt-img3"></div>
+                <div class="description">
+                    <span>스웨이브 안티포그 미러 수경</span><br>
+                    <span class="price">27,000원</span>
+                </div>
+            </a>
+            <a href="">
+                <div class="pdt-img pdt-img4"></div>
+                <div class="description">
+                    <span>엘리트 맥스 숏핀 오리발</span><br>
+                    <span class="price">109,000원</span>
+                </div>
+            </a>
+            <a href="">
+                <div class="pdt-img pdt-img5"></div>
+                <div class="description">
+                    <span>마레스 뉴 클리퍼 오리발</span><br>
+                    <span class="price">54,000원</span>
+                </div>
+            </a>
+            <a href="">
+                <div class="pdt-img pdt-img6"></div>
+                <div class="description">
+                    <span>나이키 하이드라스트롱 솔리드</span><br>
+                    <span class="price">79,000원</span>
+                </div>
+            </a>
+            <a href="">
+                <div class="pdt-img pdt-img7"></div>
+                <div class="description">
+                    <span>나이키 솔리드 패스트백 그린</span><br>
+                    <span class="price">99,000원</span>
+                </div>
+            </a>
+            <a href="">
+                <div class="pdt-img pdt-img8"></div>
+                <div class="description">
+                    <span>마이크로 습식타올</span><br>
+                    <span class="price">10,000원</span>
+                </div>
+            </a>
+            <a href="">
+                <div class="pdt-img pdt-img9"></div>
+                <div class="description">
+                    <span>피닉스 코드 귀마개 블랙</span><br>
+                    <span class="price">9,900원</span>
+                </div>
+            </a>
+        </div>
+
+        <footer>
+            <a href=""><img src="../image/페이스북.png" alt="페북"></a>
+            <a href=""><img src="../image/인스타.png" alt="인슷"></a>
+            <a href=""><img src="../image/트위터.png" alt="트윗"></a>
+        </footer>
+
+    </div>
+
+</body>
+
+</html>

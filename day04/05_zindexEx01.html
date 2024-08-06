@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            width: 300px;
+            border: 1px solid black;
+            box-sizing: content-box;
+            left: 50%;
+            text-align: center;
+            margin: 0 auto;
+        }
+        .box{
+            border: 2px solid black;
+            box-sizing: content-box;
+            margin: 5%;
+            font-size: 24px;
+            font-weight: 700;
+            line-height: 50px;
+        }
+        .box2{
+            position: relative;
+            height: 300px;
+        }
+        .boxx{
+            width: 100px;
+            height: 100px;
+            box-shadow: 10px 10px 10px rgb(56, 56, 56);
+            position: absolute;
+        }
+        .boxx1{
+            background-color: thistle;
+            top: 25%;
+            left: 25%;
+            transform: translate(-25%, -25%);
+            z-index: 3;
+        }
+        .boxx2{
+            background-color: khaki;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+        }
+        .boxx3{
+            background-color: skyblue;
+            bottom: 25%;
+            right: 25%;
+            transform: translate(25%, 25%);
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <!-- 컨테이너가 가로 300 세로는 안줌. 
+    안쪽텍스트는 300의 90%로줌 픽셀로 준게 아님.
+    300기준으로 그 안의 값들을 퍼센트로...
+    위 아래에 포지션넣어주고 z-index로 모양 맞추기.  -->
+    
+    <div class="container">
+        <div class="box box1">텍스트</div>
+        <div class="box box2">
+            <div class="boxx boxx1"></div>
+            <div class="boxx boxx2"></div>
+            <div class="boxx boxx3"></div>
+        </div>
+        <div class="box box3">텍스트</div>
+    </div>
+</body>
+</html>

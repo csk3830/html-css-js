@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 화면에 버튼을 생성하여 버튼을 클릭하면 내이름이 h1 태그에 표시 -->
+    <button onclick="nameEvent()" >Click!</button>
+    <button id="btn">클릭!</button>
+    <button class="btn-cls">눌러</button>
+    <h1 id="txt"></h1>
+<script>
+    const txt = document.getElementById('txt');
+    const btn = document.getElementById('btn');
+
+    function nameEvent(){
+        txt.innerText = '최수경';
+    }
+
+    btn.addEventListener('click', ()=>{
+        txt.innerText = '최 수  경';
+    })
+
+
+    document.querySelector('.btn-cls').addEventListener('click', ()=>{
+        txt.innerText = '최\n수\n경';
+    })
+
+</script>
+</body>
+</html>

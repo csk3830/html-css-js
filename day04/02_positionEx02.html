@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul{
+            list-style: none;
+            padding-left: 0;
+        }
+        ul>a>li{
+            width: calc(100% / 4);
+            float: left;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: 700;
+            color: black;
+            text-align: center;
+            line-height: 53px;
+            border: 1px solid black;
+            box-sizing: border-box;
+        }
+        ul>a:nth-child(1)>li{
+            border-left: 1px solid black;
+        }
+        ul>a>li:hover{
+            background-color: bisque;
+        }
+        .r{
+            border-right: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- 가로 100%
+    메뉴에 a태그
+    보더만 넣기. 겹치는 부분 두줄로 나오지않게  -->
+    <ul>
+        <a href="#"><li class="r">menu1</li></a>
+        <a href="#"><li class="r">menu2</li></a>
+        <a href="#"><li class="r">menu3</li></a>
+        <a href="#"><li>menu4</li></a>
+    </ul>
+</body>
+</html>

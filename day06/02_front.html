@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="reset.css"> -->
+    <style>
+        /* 태그들이 가지고 있는 고유 속성들을 없애주는 코드 reset.css */
+        @import url(reset.css);
+        /* vh / vw : 모니터 기준(브라우저) */
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+            url(../image/빌딩숲.jpg);   
+        }
+        a{
+            text-decoration: none;
+            color: rgb(255, 255, 255);
+        }
+        header{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 60px 0 60px;
+            height: 80px;
+        }
+        header>div{
+            width: 440px;
+            font-size: 25px;
+            font-weight: 700;
+            box-sizing: border-box;
+        }
+        header>ul{
+            display: flex;
+            justify-content: space-between;
+            list-style: none;
+        }
+        header>ul>a>li{
+            width: 100px;
+            padding-left: none;
+            text-align: right;
+            font-size: 18px;
+            font-weight: 700;
+        }
+        header>ul>a>li:hover{
+            color:rgba(255, 255, 255, 0.726);
+        }
+        .content{
+            text-align: center;
+            color:rgb(255, 255, 255);
+            font-weight: 700;
+        }
+        .content>p{
+            padding-top: 220px;
+            font-size: 50px;
+            padding-bottom: 50px;
+        }
+        .content>button{
+            width: 200px;
+            height: 50px;
+            background-color: transparent;
+            border: 2px solid white;
+            border-radius: 10px;
+            color: white;
+            font-size: 20px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.5s;
+        }
+        .content>button:hover{
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div>
+            <a href="">DESIGN</a>
+        </div>
+        <ul>
+            <a href=""><li>HOME</li></a>
+            <a href=""><li>LOGIN</li></a>
+            <a href=""><li>SIGNUP</li></a>
+            <a href=""><li>BOARD</li></a>
+        </ul>
+    </header>
+    <div class="content">
+        <p>Welcome to Front-End World</p>
+        <button>Learn More</button>
+    </div>
+
+</body>
+
+</html>

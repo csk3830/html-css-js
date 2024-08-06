@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Kalnia+Glaze:wght@100..700&display=swap"
+        rel="stylesheet">
+    <!-- 
+    box의 속성
+    width : 가로길이
+    height : 세로길이
+    margin : box의 바깥여백
+    padding: box의 안쪽여백
+    box-sizing : box의 크기를 지정하는 속성
+    box-sizing에 따라 width가 컨텐츠의 크기가 될 수도 있고, 박스 전체의 크기가 될 수도 있음
+
+    - border-box => width = 컨텐츠의 가로 + padding + border
+    - content-box => width = 컨텐츠의 가로
+    
+    width = 100px   padding = 5px   border = 1px    (left + right)
+    border-box = padding 5 + 5 + 1 + 1 + 88(컨텐츠) = 100px => 많이사용
+    content-box = padding 5 + 5 + 1 + 1 + 100(컨텐츠) = 112px
+    -->
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            padding: 5px;
+            background-color: aquamarine;
+            box-sizing: border-box;
+        }
+
+        .box1 {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            padding: 5px;
+            background-color: aquamarine;
+            box-sizing: content-box;
+        }
+
+        .box2 {
+            margin-top: 20px;
+            margin-left: 20px;
+            width: 120px;
+            height: 50px;
+            background-color: rgba(229, 174, 255, 0.774);
+            text-align: center;
+            font-family: "Dosis", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 900;
+            font-style: normal;
+            font-size: 24px;
+            color: rgb(0, 119, 255);
+            line-height: 50px;
+            border: 2px dashed rgb(0, 119, 255);
+            border-radius: 20px;
+            text-shadow: 5px 5px 15px rgb(0, 255, 234);
+            box-shadow: 15px 15px 5px rgb(132, 216, 255);
+        }
+
+        .box2:hover {
+            color: aliceblue;
+            background-color: black;
+            border: 2px dashed rgb(182, 182, 182);
+            box-shadow: 15px 15px 5px rgb(206, 206, 206);
+        }
+
+        .deco {
+            text-decoration: none;
+
+        }
+
+        .bi-box-arrow-right {
+            width: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <div class="box1"></div>
+    <!-- box2를 클릭하면 naver로 이동하는 버튼(div)을 생성 -->
+    <a class="deco" href="https://www.naver.com">
+        <div class="box2">
+            NAVER
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-box-arrow-right"
+                viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z" />
+                <path fill-rule="evenodd"
+                    d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z" />
+            </svg>
+        </div>
+    </a>
+</body>
+
+</html>

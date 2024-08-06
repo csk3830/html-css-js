@@ -1,0 +1,76 @@
+@font-face {
+    font-family: "bebasneue";
+    src: url("../font/BebasNeue-Regular.ttf");
+}
+@font-face {
+    font-family: "jua";
+    src: url("../font/Jua-Regular.ttf");
+}
+body{
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #ffa7a3, #5673bd);
+}
+header{
+    font-family: bebasneue, sans-serif;
+    letter-spacing: 10px;
+    font-size: 90px;
+    font-weight: 700;
+    color: rgb(255, 248, 212);
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+
+nav{
+    background-color: rgb(0, 0, 0);
+    height: 55px;
+    text-align: center;
+    line-height: 50px;
+    font-family: jua, sans-serif;
+    font-weight: 700;
+    margin-bottom: 40px;
+    font-size: 0;
+}
+.bd-bot{
+    border-bottom: 5px solid white;
+    box-sizing: border-box;
+}
+
+nav>a{
+    text-decoration: none;
+    display: inline-block;
+    width: 15%;
+    color: white;
+    height: 55px;
+    font-size: 30px;
+}
+
+nav>a:hover{
+    background-color: white;
+    height: 55px;
+    color: black;
+}
+
+.main-img{
+    width: 60%;
+    height: 600px;
+    margin: 0 auto;
+    border-radius: 20px;
+    background-size: 100% 600px;
+    background-repeat: no-repeat;
+    box-shadow: 10px 5px 10px ;
+}
+
+.home-img{
+    background-image: url(../image/비행.jpg);
+}
+.seoul-img{
+    background-image: url(../image/경복궁.jpg);
+}
+.tokyo-img{
+    background-image: url(../image/후지산.jpg);
+}
+.paris-img{
+    background-image: url(../image/에펠탑.jpg);
+}

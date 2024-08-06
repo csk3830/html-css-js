@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+.outer{
+    height: 150px;
+    background-color: bisque;
+    position: relative;
+}
+.inner{
+    width: 100px;
+    height: 100px;
+    top: 25px;
+    position: absolute;
+}
+.inner:nth-child(1){
+    left:25px;
+    background-color: aquamarine;
+}
+.inner:nth-child(2){
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: goldenrod;
+}
+
+.inner:nth-child(3){
+    right: 25px;
+    background-color: chocolate;
+}
+.pbox{
+    width: 500px;
+    height: 500px;
+    background-color: blueviolet;
+    position: relative;
+}
+.box{
+    width:100px;
+    height: 100px;
+    position: absolute;
+    background-color: aquamarine;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+</style>
+</head>
+
+<body>
+<!-- 위아래 25씩(각자 끝기준), 100x150 가운데는 정가운데
+부모의 가로는 안줬음 100%
+
+500x500의 부모박스의 정가운데에 100x100 -->
+<div class="outer">
+    <div class="inner"></div>
+    <div class="inner"></div>
+    <div class="inner"></div>
+</div>
+    
+<div class="pbox">
+    <div class="box"></div>
+</div>
+
+</body>
+</html>
