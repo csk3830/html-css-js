@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 1~10까지의 합계 for, while문 모두-->
+
+    <script>
+        let forSum = 0;
+        for(i=1;i<=10;i++){
+            forSum += i;
+            console.log(i, forSum);
+        };
+        console.log("-----------");
+        console.log(forSum);
+
+        console.log("-----------");
+        let whileSum = 0;
+        let cnt=1;
+        while(cnt<=10){
+            whileSum += cnt;
+            cnt++;
+        }
+        console.log('whileSum: ' + whileSum)
+
+        console.log("---------------------");
+
+        //구구단 3단 출력   3 * 1 = 3
+        let dan = 3; // 3단
+        let incre = 1; // 1~9증가
+
+        while(incre <= 9){
+            let value = dan * incre;
+            console.log(`${dan} * ${incre} = ${value}`);
+            incre ++;
+        };
+
+
+    </script>
+</body>
+</html>
