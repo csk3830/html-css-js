@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            width: 300px;
+            height: 300px;
+        }
+        button{
+            cursor: pointer;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <button onclick="play(1)"><img src="../image/scissors.png" alt="">가위(1)</button>
+    <button onclick="play(2)"><img src="../image/rock.png" alt="">바위(2)</button>
+    <button onclick="play(3)"><img src="../image/paper.png" alt="">보(3)</button>
+    <h3 id="result"></h3>
+
+    <script>
+        let win = 0; 
+        let draw = 0;
+        let lose = 0;
+        let cnt = 0;
+
+        function str(num){ //숫자를 가위바위보로 변환하는 함수
+            switch(num){
+                case 1: return '가위✌';
+                case 2: return '바위👊';
+                case 3: return '보✋';
+            }
+        }
+
+        function play(player){  //결과를 출력하는 함수 
+            cnt++;
+            let com = Math.floor(Math.random()*3) +1;
+            let result = compare(com, player);
+            let rate = cnt-draw > 0 ? win / (cnt-draw)*100 : 0; 
+            document.getElementById('result').innerHTML = `
+                ${result} <br><br>
+                ===========현재 스코어=========== <br>
+                승: ${win} / 무: ${draw} / 패: ${lose} <br>
+                승률: ${rate.toFixed(2)}%
+            `;
+            
+        }
+        
+        function compare(com, player) {  // 값을 비교하는 함수
+            if (com === player) {
+                draw++;
+                return `비겼습니다 <br>당신: ${str(player)} VS 컴퓨터: ${str(com)}`;
+            } else if ((com === 1 && player === 2) || (com === 2 && player === 3) || (com === 3 && player === 1)) {
+                win++;
+                return `이겼습니다! <br>당신: ${str(player)} VS 컴퓨터: ${str(com)}`;
+            } else {
+                lose++;
+                return `졌습니다.. <br>당신: ${str(player)} VS 컴퓨터: ${str(com)}`;
+            }
+        }
+            
+
+         
+
+    </script>
+</body>
+</html>
+

@@ -17,31 +17,31 @@
         //콘솔 com / player 출력
         // 콘솔에 승: 무: 패:
         //카페에 제출
+
         document.getElementById('btn').addEventListener('click', ()=>{
-        let win = 0;
-        let lose = 0;
-        let draw = 0;
-        // console.log(`${com} / ${player}`);
+            let win = 0;
+            let lose = 0;
+            let draw = 0;
 
-        for(let i=0;i<10;i++){
-            let com = Math.floor(Math.random()*3)+1;
-            let player = Math.floor(Math.random()*3)+1;
-            if(com==player){
-                draw++;
-            } else{
-                if((com==1 && player==2)||(com==2 && player==3)||(com==3 && player==1)){
-                    win++;
+            for(let i=0;i<10;i++){
+                let com = Math.floor(Math.random()*3)+1;
+                let player = Math.floor(Math.random()*3)+1;
+                if(com==player){
+                    draw++;
+                } else{
+                    if((com==1 && player==2)||(com==2 && player==3)||(com==3 && player==1)){
+                        win++;
+                    }
+                    else{
+                        lose++;
+                    }
                 }
-                else{
-                    lose++;
-                }
-            }
-            console.log(`player: ${player}, com: ${com}`);
-        };
+                console.log(`player: ${player}, com: ${com}`);
+            };
 
-        let rate = (win / (10-draw))*100
-        console.log(`승: ${win}, 무: ${draw}, 패: ${lose}`);
-        document.getElementById('result').innerText = rate.toFixed(2);
+            let rate = (win / (10-draw))*100
+            console.log(`승: ${win}, 무: ${draw}, 패: ${lose}`);
+            document.getElementById('result').innerText = rate.toFixed(2);
         
         });
 
