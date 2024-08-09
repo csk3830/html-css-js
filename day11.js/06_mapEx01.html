@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        input 2개 생성 => 과목, 점수 입력
+        map에 추가
+        출력 => map 출력 ul=>li 형태로 출력 
+        결과 => 합계, 평균, 합격여부(60점이상이면 합격) => h3
+        추가 눌렀을때 0~100사이의 값이 아니라면 0~100사이의 값만 입력해주세요.
+        추가->맵에 내용 들어가야됨. (추가 했을때마다 값 나오게 하면 출력은 없어도 됨.)
+        출력 -> 맵의 내용 나와야됨.(map에 있는 걸 forEach 활용)
+    -->
+    <form action="">
+        과목: <input type="text" id="subject"> <br>
+        점수: <input type="number" id="score"> <br>
+        <button type="button" onclick="add()">추가</button>
+        <button type="button" id="printBtn">출력</button>
+        <button type="button" id="totalBtn">결과</button>
+        
+        <ul id="result"></ul>
+        <h3 id="tot"></h3>
+    </form>
+    
+    <script>
+        const myMap = new Map();
+        const tot = document.getElementById('tot');
+        const result= document.getElementById('result');
+        const subject=document.getElementById('subject');
+        const score = document.getElementById('score');
+        let sum = 0;
+        function add(){
+            let subjectVal = subject.value;
+            let scoreVal = Number(score.value);
+            if(scoreVal <0 || scoreVal >100){
+                tot.innerText='0~100 사이의 값만 입력해주세요.';
+                subject.value="";
+                score.value="";
+                return;
+            }
+            myMap.set(subjectVal, scoreVal);
+            sum += scoreVal;
+            subject.value="";
+            score.value="";
+            subject.focus();
+            console.log(myMap);
+            console.log(sum);
+        }   
+        
+    </script>
+</body>
+</html>
