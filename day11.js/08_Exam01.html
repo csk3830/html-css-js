@@ -7,16 +7,16 @@
 </head>
 <body>
     <!--  
-        set을 이용한 로또 생성
-    /* 사용자 번호 6자리
-	 * 당첨번호 7자리 => 마지막자리는 보너스번호
-	 * -- 당첨기준
-	 * 1등 당첨번호 6자리가 모두 일치
-	 * 2등 당첨번호 5자리 일치 + 보너스번호 일치
-	 * 3등 당첨번호 5자리 일치
-	 * 4등 당첨번호 4자리 일치
-	 * 5등 당첨번호 3자리 일치
-	 * 나머지 꽝!
+    set을 이용한 로또 생성
+    사용자 번호 6자리
+	당첨번호 7자리 => 마지막자리는 보너스번호
+	-- 당첨기준
+	1등 당첨번호 6자리가 모두 일치
+	2등 당첨번호 5자리 일치 + 보너스번호 일치
+	3등 당첨번호 5자리 일치
+	4등 당첨번호 4자리 일치
+	5등 당첨번호 3자리 일치
+	나머지 꽝!
     -->
     <h1>
         1~45까지 중복되지 않게 숫자 6개를 랜덤으로 추출 => 출력
@@ -26,89 +26,82 @@
         set/map clear()
         array   splice(index,count) : index부터 count 개수만큼 제거
     -->
-    <button onclick="myBtn()">랜덤번호 6자리 생성(출력)</button>
+    <button type="button" id="myRan">랜덤번호 6자리 생성(출력)</button>
     <h1 id="mySet"></h1>
-    <button onclick="comBtn()">당첨번호 7자리 생성(출력)</button>
+    <button type="button" id="comRan">당첨번호 7자리 생성(출력)</button>
     <h1 id="comSet"></h1>
-    <button onclick="compare()">결과 확인</button>
-    <h1 id="result"></h1>
+    <button type="button" id="result">결과 확인</button>
+    <h1 id="print"></h1>
     <script>
-        let myArray;
-        let comArray;
+        let myArray = [];
+        let comArray = [];
 
-        function ranNum(cnt){   // 랜덤번호배열 생성 함수
+        function ranSet(len) {
             let ranSet = new Set();
-            let array = [];
-            while (ranSet.size < cnt){
-                ranSet.add(Math.floor(Math.random() * 10 ) + 1);
+            for (let i=0; ranSet.size<len; i++){
+                ranSet.add(Math.floor(Math.random()*10)+1);
             }
-            for (let i of ranSet){
-                array.push(i);
-            }
-            return array;
+            return ranSet;
         }
 
-
-        function myBtn() {  //랜덤번호 출력
-            myArray = ranNum(6);
-            let myStr = '';
-            for (let i=0; i<myArray.length; i++) {
-                myStr += myArray[i];
-                if (i < myArray.length - 1) {
-                    myStr += ', ';
-                }
+        document.getElementById('myRan').addEventListener('click',() =>{
+            myArray = []; 
+            let myRanSet = ranSet(6);
+            for(let i of myRanSet){
+                myArray.push(i);
             }
-            document.getElementById('mySet').innerText = `${myStr}`;
-        }
+            document.getElementById('mySet').innerText = myArray;
+        })
 
-        function comBtn() { //당첨번호 출력
-            comArray = ranNum(7);
+        document.getElementById('comRan').addEventListener('click', ()=>{
+            comArray = [];
+            let comRanSet = ranSet(7);
+            for(let i of comRanSet){
+                comArray.push(i);
+            }
             let comStr = '';
-            for (let i=0; i<comArray.length; i++) {
-                if (i == comArray.length - 1) {
-                    comStr += `[${comArray[i]}]`;
+            for(let i=0; i<comArray.length; i++){
+                if (i>=comArray.length-1){
+                    comStr += `[${comArray[i]}]`
                 } else {
-                    comStr += comArray[i] + ', ';
+                    comStr += comArray[i]+(',')
                 }
             }
-            document.getElementById('comSet').innerText = `${comStr}`;
-        }
+            document.getElementById('comSet').innerText = comStr;
+        })
 
-        function compare() { //결과 출력
-            let comArray1 = comArray.slice(0,6);
-            let bonus = comArray[6];
+        
+        document.getElementById('result').addEventListener('click',() => {
+            let bonus = comArray.pop();
+            comArray.splice(6,1);
             let cnt = 0;
             let isBonus = false;
             let result = '';
 
             for (let i of myArray){
-                if (comArray1.includes(i)){
+                if(comArray.includes(i)){
                     cnt++;
                 }
-                if (i == bonus){
+                if(i==bonus){
                     isBonus = true;
                 }
             }
-
-            if(cnt == 6){
-                result = `1등! 축하합니다!`;
-            } else if(cnt==5 && isBonus){
-                result = `2등! 축하합니다!`;
-            } else if(cnt==5){
-                result = `3등! 축하합니다!`;
-            } else if(cnt==4){
-                result = `4등! 축하합니다!`;
-            } else if(cnt==3){
-                result = `5등! 축하합니다!`;
+            if (cnt==6){
+                result += `1등! 축하합니다!`
+            } else if(cnt==5 && isBonus) {
+                result += `2등! 축하합니다!`
+            } else if (cnt==5){
+                result += `3등! 축하합니다!`
+            } else if (cnt==4){
+                result += `4등! 축하합니다!`
+            } else if (cnt==3){
+                result += `5등! 축하합니다!`
             } else {
-                result = `꽝! 다음 기회에!`;
+                result += `꽝! 다음 기회에!`
             }
 
-            document.getElementById('result').innerText = result;
-
-        }
-
-
+            document.getElementById('print').innerText = result;
+        })
 
     </script>
 </body>
