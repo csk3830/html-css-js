@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="calculator">
+        <form action="" name="forms">
+            <input type="text" id="output"> <br>
+            <button type="button" class="clear" value="C">C</button>
+            <button type="button" class="operator" value="/">/</button><br>
+            <button type="button" value="1">1</button>
+            <button type="button" value="2">2</button>
+            <button type="button" value="3">3</button>
+            <button type="button" class="operator" value="*">*</button><br>
+            <button type="button" value="4">4</button>
+            <button type="button" value="5">5</button>
+            <button type="button" value="6">6</button>
+            <button type="button" class="operator" value="+">+</button><br>
+            <button type="button" value="7">7</button>
+            <button type="button" value="8">8</button>
+            <button type="button" value="9">9</button>
+            <button type="button" class="operator" value="-">-</button><br>
+            <button type="button" value=".">.</button>
+            <button type="button" value="0">0</button>
+            <button type="button" class="operator result" value="=">=</button>
+        </form>
+    </div>
+    <!-- 자바스크립트 코테 단골 1.계산기/2.투두리스트 -->
+    <!-- css는 그리드
+    소수점 두자리까지는 계산이 되어야 함.
+    +,-,*,/
+    C누르면 클리어
+    div안에 폼태그
+    그밑엔 전부 버튼
+    버튼은 17개 필요 -->
+    <script>
+        let numL = '';
+        document.querySelector('.calculator').addEventListener('click',(e)=>{
+            // console.log(e.target);  //내가 선택한 객체
+            // console.log(e.target.value);    //내가 선택한 객체의 value 값
+            // console.log(typeof e.target.value)
+            //eval 함수 절대 쓰지 X
+            let numR = '';
+            let ope = document.querySelector('.operator').value;
+            let target = e.target.value;
+            console.log(target);
+
+            let result = '';
+            if (!isNaN(target)){
+                // target = Number(target);
+                numL += target;
+            } else {
+                switch(ope){
+                    case '/' : result = numL / numR; break;
+                    case '*' : result = numL * numR; break;
+                    case '+' : result = numL + numR; break;
+                    case '-' : result = numL - numR; break;
+                }
+            }
+            console.log(numL)
+
+
+
+
+        })
+    </script>
+</body>
+</html>

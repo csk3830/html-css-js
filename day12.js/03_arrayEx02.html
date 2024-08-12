@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        내가 좋아하는 가수
+    </h1>
+    <form action="">
+        이름 : <input type="text" id="name"> <br>
+        나이 : <input type="text" id="age"> <br>
+        주소 : <input type="text" id="address"> <br>
+        playList : <br>
+        <input type="text" id="first">
+        <input type="text" id="second">
+        <input type="text" id="third">
+        <button type="button" id="add">등록</button>
+    </form>
+    <h3 id="result"></h3>
+
+    <script>
+        const people = [];
+
+        //people에 객체를 3개 등록
+        document.getElementById('add').addEventListener('click',()=>{
+            const musician2 = {
+                name: document.getElementById('name').value,
+                age: document.getElementById('age').value,
+                address : document.getElementById('address').value,
+                playList:{ 
+                    first: document.getElementById('first').value,
+                    second: document.getElementById('second').value,
+                    third: document.getElementById('third').value
+                }
+            }
+            people.push(musician2);
+
+            //출력
+            people.forEach(function(e){
+                console.log("--가수--");
+                for(let keyName in e){
+                    if (keyName == 'playList'){
+                        //다시 객체 안
+                        console.log("-LIST");
+                        for(let key in e[keyName]){
+                            console.log(e[keyName][key]); //for of는 그냥 찍어도 되지만, for in은 객체의 키네임으로 찍어야 함.
+                        }
+                    }else{
+                        console.log(keyName+":"+e[keyName]);
+                    }
+                }
+            })
+        })
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        //내가 짠 코드
+        //people에 객체를 3개 등록
+        // document.getElementById('add').addEventListener('click',()=>{
+        //     let name = document.getElementById('name').value;
+        //     let age = document.getElementById('age').value;
+        //     let addr = document.getElementById('address').value;
+        //     let playList1 = document.getElementById('first').value;
+        //     let playList2 = document.getElementById('second').value;
+        //     let playList3 = document.getElementById('third').value;
+        //     let str = '';
+
+        //     musician2 = {
+        //         name: name,
+        //         age: age,
+        //         address : addr,
+        //         playList:{ 
+        //             first: playList1,
+        //             second: playList2,
+        //             third: playList3
+        //         }
+        //     }
+
+        //     people2.push(musician2);
+
+        //     //3명의 데이터를 콘솔에 for문으로 순회 나열
+        //     for(let mus of people2){
+        //         str = "--배열 객체--" + '\n'
+        //         for (let key in mus){
+        //             if(key == 'playList'){
+        //                 str += "--플레이리스트--" + '\n';
+        //                 for(let song in mus[key]){
+        //                     str += mus[key][song] + '\n';
+        //                 }
+        //             } else {
+        //                 str += key+" : "+mus[key] + '\n';
+        //             }
+        //         }
+        //     }
+        //     document.getElementById('result').innerText += str;
+        // })
+
+
+
+
+
+
+    </script>
+</body>
+</html>
