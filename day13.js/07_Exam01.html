@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @font-face {
+            font-family: KalniaGlaze;
+            src: url(../font/BMHANNAPro.ttf);
+        }
+        body{
+            color: rgb(0, 18, 117);
+            background-color: rgb(163, 232, 245);
+        }
+        #header{
+            margin-top: 50px;
+            text-align: center;
+        }
+        #section{
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+        }
+        .title{
+            font-size: 50px;
+            font-weight: 800;
+            font-family: KalniaGlaze, sans-serif;
+        }
+        section .title{
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        section .members{
+            padding: 20px;
+            margin: 10px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 250px;
+        }
+        .members div{
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        li{
+            margin-bottom: 5px; 
+        }
+    </style>
+</head>
+<body>
+    <!-- https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json -->
+    <header id="header"></header>
+    <section id="section"></section>
+
+    <script>
+        fetch('https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json').then(resp => resp.json())
+        .then(result => {
+            printData(result);
+        }) 
+        .catch(err => console.log(err)); 
+
+        function printData(result){
+            
+            let setHeaderStr = '';
+            let setSectionStr = '';
+
+            setHeaderStr += `<h1 class="title">${result["squadName"]}</h1>`;
+            setHeaderStr += `<h3 class="sub-title">HomeTown: ${result["homeTown"]} // Formed: ${result["formed"]}</h3>`;
+            document.getElementById('header').innerHTML = setHeaderStr;
+
+            for (let member of result["members"]) {
+                let memberInfo = '';
+                if (member["secretIdentity"]) {
+                    memberInfo += `<div>SecretIdentity: ${member["secretIdentity"]}</div>`;
+                }
+
+                if (member["age"]) {
+                    memberInfo += `<div>Age: ${member["age"]}</div>`;
+                }
+
+                if (member["powers"]) {
+                    memberInfo += `<div>Superpowers:</div><ul>`;
+                    for (let power of member["powers"]) {
+                        memberInfo += `<li>${power}</li>`;
+                    }
+                    memberInfo += `</ul>`;
+                }
+                
+                setSectionStr += `<div class="members"><div class="title">${member["name"]}</div>${memberInfo}</div>`;
+                
+            }
+            document.getElementById('section').innerHTML = setSectionStr;
+
+        }
+    </script>
+</body>
+</html>
