@@ -11,11 +11,32 @@
         TRAVEL
     </header>
     <nav>
-        <a href="01_home.html" class="home bd-bot">Home</a>
+        <!-- <a href="01_home.html" class="home bd-bot">Home</a>
         <a href="02_seoul.html" class="seoul">Seoul</a>
         <a href="03_tokyo.html" class="tokyo">Tokyo</a>
-        <a href="04_paris.html" class="paris">Paris</a>
+        <a href="04_paris.html" class="paris">Paris</a> -->
+        <a href="#" id="home">Home</a>
+        <a href="#" id="seoul">Seoul</a>
+        <a href="#" id="tokyo">Tokyo</a>
+        <a href="#" id="paris">Paris</a>
     </nav>
     <div class="main-img home-img"></div>
+    <script>
+        const mainImg = document.querySelector('.main-img');
+
+        const imgUrl = {
+            home: '../image/비행.jpg',
+            seoul: '../image/경복궁.jpg',
+            tokyo: '../image/후지산.jpg',
+            paris: '../image/에펠탑.jpg'
+        };
+
+        for (let city in imgUrl){
+            document.getElementById(`${city}`).addEventListener('click',()=> {
+                mainImg.style.backgroundImage = `url(${imgUrl[city]})`;
+            });
+        };
+        
+    </script>
 </body>
 </html>
