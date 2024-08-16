@@ -1,0 +1,114 @@
+<!-- 내가 짠 코드 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @font-face {
+            font-family: 'BMEULJIROTTF';
+            src: url(../font/BMEULJIROTTF.ttf);
+        }
+        body{
+            font-family: BMEULJIROTTF, sans-serif;
+            font-size: x-large;
+        }
+        #wrapper{
+            text-align: center;
+            font-size: 25px;
+            width: 30%;
+            margin: 0 auto;
+        }
+        #wrapper>form>#item{
+            font-family: BMEULJIROTTF, sans-serif;
+            width: 300px;
+            height: 30px;
+            margin-bottom: 20px;
+            font-size: 25px;
+            padding: 10px;
+        }
+        #wrapper>form>#add{
+            height: 54px;
+            width: 70px;
+            background-color: rgb(116, 241, 143);
+            border: 1px solid rgb(0, 0, 0);
+            font-size: 25px;
+            cursor: pointer;
+            font-family: BMEULJIROTTF, sans-serif;
+        }
+        #wrapper>form>#add:hover{
+            background-color:green;
+        }
+        #wrapper>h2{
+            font-size: 50px;
+            padding: 50px 0px 50px 0px;
+        }
+        #wrapper>div>#itemList{
+            margin: 0 auto;
+            padding-left: 0;
+        }
+        #wrapper>div>#itemList>li{
+            padding-left: 20px;
+            list-style: none;
+            text-align: left;
+            display: flex;
+            justify-content: space-between;
+            background-color: rgb(116, 241, 143);
+            height: 50px;
+            line-height: 50px;
+        }
+        #wrapper>div>#itemList>li:hover {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+        }
+        #wrapper>div>#itemList>li:nth-child(odd){
+            background-color: rgb(197, 197, 197);
+        }
+        #wrapper>div>#itemList>li>.remove {
+            background-color: rgb(136, 136, 136);
+            border: none;
+            color: white;
+            font-size: 20px;
+            padding: 5px 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #wrapper>div>#itemList>li>.remove:hover {
+            background-color: rgb(0, 0, 0);
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <!-- 이거(투두리스트 => 추가한 값 수정까지 가능하게)랑 계산기는 필수로 할 수 있어야 함 -->
+        <h2>여행 준비물 점검 목록</h2>
+        <form action="">
+            <input type="text" id="item" autofocus="true">
+            <button type="button" id="add">추가</button>
+        </form>
+        <div>
+            <ul id="itemList"></ul>
+        </div>
+    </div>
+    <script>
+
+        document.getElementById('add').addEventListener('click',()=>{
+            let inputVal = document.getElementById('item').value;
+            let ul = document.getElementById('itemList');
+            let li = document.createElement('li');
+            li.innerHTML = `${inputVal}<button type="button" class="remove">X</button>`;
+            ul.appendChild(li);
+            
+        })
+
+        document.getElementById('itemList').addEventListener('click', (e) => {
+            if (e.target.classList.contains('remove')) {
+                let li = e.target.parentElement;    //itemList의 'remove'가 포함된 클래스를 가진것들의 부모요소
+                li.remove();
+            }
+        });
+
+    </script>
+</body>
+</html>

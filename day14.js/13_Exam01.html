@@ -5,81 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        @font-face {
-            font-family: 'BMEULJIROTTF';
-            src: url(../font/BMEULJIROTTF.ttf);
-        }
-        body{
-            font-family: BMEULJIROTTF, sans-serif;
-            font-size: x-large;
-        }
-        #wrapper{
+        #wapper{
+            width: 600px;
+            margin: 0 auto;
             text-align: center;
-            font-size: 25px;
-            width: 30%;
-            margin: 0 auto;
         }
-        #wrapper>form>#item{
-            font-family: BMEULJIROTTF, sans-serif;
-            width: 300px;
-            height: 30px;
-            margin-bottom: 20px;
-            font-size: 25px;
-            padding: 10px;
-        }
-        #wrapper>form>#add{
-            height: 54px;
-            width: 70px;
-            background-color: rgb(116, 241, 143);
-            border: 1px solid rgb(0, 0, 0);
-            font-size: 25px;
-            cursor: pointer;
-            font-family: BMEULJIROTTF, sans-serif;
-        }
-        #wrapper>form>#add:hover{
-            background-color:green;
-        }
-        #wrapper>h2{
-            font-size: 50px;
-            padding: 50px 0px 50px 0px;
-        }
-        #wrapper>div>#itemList{
-            margin: 0 auto;
-            padding-left: 0;
-        }
-        #wrapper>div>#itemList>li{
-            padding-left: 20px;
-            list-style: none;
-            text-align: left;
-            display: flex;
-            justify-content: space-between;
-            background-color: rgb(116, 241, 143);
-            height: 50px;
-            line-height: 50px;
-        }
-        #wrapper>div>#itemList>li:hover {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
-        }
-        #wrapper>div>#itemList>li:nth-child(odd){
-            background-color: rgb(197, 197, 197);
-        }
-        #wrapper>div>#itemList>li>.remove {
-            background-color: rgb(136, 136, 136);
-            border: none;
+        #wapper form{
+            background-color: rgb(5,90,61);
             color: white;
-            font-size: 20px;
-            padding: 5px 10px;
+            padding: 30px 40px;
+        }
+        #wapper form input{
+            border: none;
+            outline: none;
+            width: 300px;
+            padding: 10px;
+            font-size: 15px;
+        }
+        #wapper form button{
+            padding: 10px;
+            border: none;
+            background-color: #fff;
+            box-shadow: 3px 3px 3px rgb(31, 31, 31);
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        #wapper div ul{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        #wapper div ul li{
+            padding: 12px 10px;
+            background-color: beige;
+            position: relative;
+        }
+        #wapper div ul li:nth-child(odd){
+            background-color: bisque;
+        }
+        #wapper div ul li:hover{
+            background-color: rgb(169, 225, 206);
+        }
+        .close{
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            padding: 12px 20px;
+            cursor: pointer;
+        }
+        .close:hover{
+            background-color: rgb(72, 91, 84);
+            color:#fff;
         }
 
-        #wrapper>div>#itemList>li>.remove:hover {
-            background-color: rgb(0, 0, 0);
-        }
     </style>
 </head>
 <body>
-    <div id="wrapper">
+    <div id="wapper">
         <!-- 이거(투두리스트 => 추가한 값 수정까지 가능하게)랑 계산기는 필수로 할 수 있어야 함 -->
         <h2>여행 준비물 점검 목록</h2>
         <form action="">
@@ -91,23 +74,53 @@
         </div>
     </div>
     <script>
+        //추가하는 목록을 저장, 삭제하는 목록을 제거
+        const itemList= [];
 
-        document.getElementById('add').addEventListener('click',()=>{
-            let inputVal = document.getElementById('item').value;
-            let ul = document.getElementById('itemList');
-            let li = document.createElement('li');
-            li.innerHTML = `${inputVal}<button type="button" class="remove">X</button>`;
-            ul.appendChild(li);
-            
+        //삭제 
+        //동적으로 생기는 엘리먼트에 이벤트를 생성시 document에 리스너를 달아서 클릭을 감지 후 처리
+        document.addEventListener('click',(e)=>{
+            console.log(e.target);
+            if(e.target.classList.contains('close')){   //삭제 버튼 감지시...
+                let i = e.target.id;
+
+                //i번지 1개 삭제
+                itemList.splice(i, 1);
+            }
+            //뿌리기
+            showList();
         })
 
-        document.getElementById('itemList').addEventListener('click', (e) => {
-            if (e.target.classList.contains('remove')) {
-                let li = e.target.parentElement;    //itemList의 'remove'가 포함된 클래스를 가진것들의 부모요소
-                li.remove();
-            }
-        });
 
+        //뿌리기
+        function showList(){
+            let list = '';  //텍스트
+            for(let i=0; i<itemList.length; i++){
+                list += `<li id="list${i}">${itemList[i]}<span class="close" id="${i}">X</span></li>`;
+            }
+            document.getElementById('itemList').innerHTML = list;
+        }
+
+        document.getElementById('add').addEventListener('click', addItem);
+        
+        //추가
+        function addItem(){
+            let item = document.getElementById('item');
+            if(item.value !== ''){
+                itemList.push(item.value);
+                item.value='';  //input창 비우기
+                item.focus(); //input창에 포커스 두기
+                //화면에 뿌리기
+                showList();
+            }else{
+                alert('아이템 값이 없습니다.');
+                item.focus();
+            }
+        }
+
+
+   
+        
     </script>
 </body>
 </html>
